@@ -1,12 +1,32 @@
 package theater;
 
-public class Play {
+/**
+ * This is a class description.
+ * @null This type can be null in certain contexts.
+ */
 
-    public String name;
-    public String type;
+public class Play {
+    private String name;
+    private String type;
 
     public Play(String name, String type) {
+        this.setName(name);
+        this.setType(type);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
         this.type = type;
     }
 }
