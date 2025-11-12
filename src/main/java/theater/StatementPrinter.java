@@ -32,7 +32,7 @@ public class StatementPrinter {
         }
 
         result.append(String.format("Amount owed is %s%n", usd(getTotalAmount())));
-        result.append(String.format("You earned %s credits%n", getVolumeCredits()));
+        result.append(String.format("You earned %s credits%n", getTotalVolumeCredits()));
         return result.toString();
     }
 
@@ -44,16 +44,12 @@ public class StatementPrinter {
         return totalAmount;
     }
 
-    private int getVolumeCredits() {
+    private int getTotalVolumeCredits() {
         int volumeCredits = 0;
         for (Performance p : invoice.getPerformances()) {
             volumeCredits += getVolumeCredits(p);
         }
         return volumeCredits;
-    }
-
-    private static String usd(int amount) {
-        return NumberFormat.getCurrencyInstance(Locale.US).format(amount / Constants.PERCENT_FACTOR);
     }
 
     private int getVolumeCredits(Performance perf) {
@@ -63,9 +59,13 @@ public class StatementPrinter {
         // add extra credit for every five comedy attendees
         if ("comedy".equals(getPlay(perf).getType())) {
             rslt +=
-                perf.getAudience() / Constants.COMEDY_EXTRA_VOLUME_FACTOR;
+                    perf.getAudience() / Constants.COMEDY_EXTRA_VOLUME_FACTOR;
         }
         return rslt;
+    }
+
+    private static String usd(int amount) {
+        return NumberFormat.getCurrencyInstance(Locale.US).format(amount / Constants.PERCENT_FACTOR);
     }
 
     private Play getPlay(Performance perf) {

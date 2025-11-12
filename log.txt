@@ -1,7 +1,8 @@
-0025dd4 (HEAD -> main) Task 2.3
+8a00406 (HEAD -> main, origin/main, origin/HEAD) Task 2.4
+0025dd4 Task 2.3
 ecb8c60 Task 2.2
 b7fda2b Task 2.1
 19fab02 Task 2.1
 650d0a1 Task 1.2
 486951c Task 1.1
-9fd49ed (origin/main, origin/HEAD) Initial commit
+9fd49ed Initial commit
